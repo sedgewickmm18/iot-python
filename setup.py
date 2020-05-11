@@ -17,7 +17,7 @@ except ImportError:
 
 # =============================================================================
 # Convert README.md to README.rst for pypi
-# Need to install both pypandoc and pandoc 
+# Need to install both pypandoc and pandoc
 # - pip insall pypandoc
 # - https://pandoc.org/installing.html
 # =============================================================================
@@ -40,10 +40,10 @@ setup(
     author_email='parkerda@uk.ibm.com',
     package_dir={'': 'src'},
     packages=[
-        'wiotp.sdk', 
-        'wiotp.sdk.device', 
-        'wiotp.sdk.gateway', 
-        'wiotp.sdk.application', 
+        'wiotp.sdk',
+        'wiotp.sdk.device',
+        'wiotp.sdk.gateway',
+        'wiotp.sdk.application',
         'wiotp.sdk.api',
         'wiotp.sdk.api.dsc',
         'wiotp.sdk.api.registry',
@@ -53,7 +53,8 @@ setup(
         'wiotp.sdk.api.lec',
         'wiotp.sdk.api.services',
         'wiotp.sdk.api.actions',
-        'wiotp.sdk.api.state'
+        'wiotp.sdk.api.state',
+        'wiotp.as'
     ],
     namespace_packages=['wiotp'],
     package_data={'wiotp.sdk': ['*.pem']},

@@ -26,12 +26,12 @@ from wiotp.sdk.device.config import DeviceClientConfig
 
 class DeviceClient(AbstractClient):
     """
-    Extends #wiotp.common.AbstractClient to implement a device client supporting 
+    Extends #wiotp.common.AbstractClient to implement a device client supporting
     messaging over MQTT
-    
+
     # Parameters
     options (dict): Configuration options for the client
-    logHandlers (list<logging.Handler>): Log handlers to configure.  Defaults to `None`, 
+    logHandlers (list<logging.Handler>): Log handlers to configure.  Defaults to `None`,
         which will result in a default log handler being created.
     """
 
@@ -68,7 +68,7 @@ class DeviceClient(AbstractClient):
         if not self._config.isQuickstart():
             self._subscriptions[self._COMMAND_TOPIC] = 1
 
-    def publishEvent(self, eventId, msgFormat, data, qos=0, onPublish=None):
+    def publishEvent(self, eventId, msgFormat, data, qos=0, onPublish=None, Date=None):
         """
         Publish an event to Watson IoT Platform.
 
@@ -77,18 +77,18 @@ class DeviceClient(AbstractClient):
         msgFormat (string): Format of the data for this event
         data (dict): Data for this event
         qos (int): MQTT quality of service level to use (`0`, `1`, or `2`)
-        onPublish(function): A function that will be called when receipt 
-           of the publication is confirmed.  
-        
+        onPublish(function): A function that will be called when receipt
+           of the publication is confirmed.
+
         # Callback and QoS
-        The use of the optional #onPublish function has different implications depending 
-        on the level of qos used to publish the event: 
-        
+        The use of the optional #onPublish function has different implications depending
+        on the level of qos used to publish the event:
+
         - qos 0: the client has asynchronously begun to send the event
         - qos 1 and 2: the client has confirmation of delivery from the platform
         """
         topic = "iot-2/evt/{eventId}/fmt/{msgFormat}".format(eventId=eventId, msgFormat=msgFormat)
-        return self._publishEvent(topic, eventId, msgFormat, data, qos, onPublish)
+        return self._publishEvent(topic, eventId, msgFormat, data, qos, onPublish, Date)
 
     def _onCommand(self, client, userdata, pahoMessage):
         """
