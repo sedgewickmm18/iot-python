@@ -94,34 +94,19 @@ class UnrollData(BaseTransformer):
 
         # define arguments that behave as function inputs
         inputs = []
-        inputs.append(UISingleItem(
-                name='vibrationx',
-                datatype=str,
-                description='String encoded array of sensor readings'
+        inputs.append(UIMultiItem(
+                name='group1_in',
+                datatype=None,
+                description='String encoded array of sensor readings, 15 readings per 5 mins'
+                output_item='group1_out'
+                is_output_datatype_derived=True, output_datatype=None
                 ))
-
-        inputs.append(UISingleItem(
-                name='vibrationy',
-                datatype=str,
-                description='String encoded array of sensor readings'
-                ))
-
-        inputs.append(UISingleItem(
-                name='vibrationz',
-                datatype=str,
-                description='String encoded array of sensor readings'
-                ))
-
-        inputs.append(UISingleItem(
-                name='speed',
-                datatype=str,
-                description='String encoded array of sensor readings'
-                ))
-
-        inputs.append(UISingleItem(
-                name='power',
-                datatype=str,
-                description='String encoded array of sensor readings'
+        inputs.append(UIMultiItem(
+                name='group2_in',
+                datatype=None,
+                description='String encoded array of sensor readings, 5 readings per 5 mins'
+                output_item='group2_out'
+                is_output_datatype_derived=True, output_datatype=None
                 ))
 
         # define arguments that behave as function outputs
