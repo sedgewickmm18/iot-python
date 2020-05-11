@@ -54,7 +54,7 @@ setup(
         'wiotp.sdk.api.services',
         'wiotp.sdk.api.actions',
         'wiotp.sdk.api.state',
-        'wiotp.as'
+        'wiotp.analyticsservice'
     ],
     namespace_packages=['wiotp'],
     package_data={'wiotp.sdk': ['*.pem']},
