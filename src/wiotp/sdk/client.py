@@ -427,7 +427,7 @@ class AbstractClient(object):
             if Date is None:
                 payload = self.getMessageCodec(msgFormat).encode(data, datetime.now(pytz.timezone("UTC")))
             else:
-                payload = self.getMessageCodec(msgFormat).encode(data, Date))
+                payload = self.getMessageCodec(msgFormat).encode(data, Date)
 
             result = self.client.publish(topic, payload=payload, qos=qos, retain=False)
             if result[0] == paho.MQTT_ERR_SUCCESS:
